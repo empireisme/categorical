@@ -1,12 +1,12 @@
 
 
 #這是shiny的部分 可以由insurave policy檔案中的npvplot得到data.frame
-
+#install.packages("plotly")
 library(plotly)
 library(shiny)
 library(ggplot2)
 ui <- fluidPage(
-  titlePanel(title=h4("簡易儲蓄險NPV計算()", align="center")),
+  titlePanel(title=h4("簡易儲蓄險NPV計算(by寧寬)", align="center")),
   actionButton("go", "Go"),
   numericInput("yearpay", "一年要繳多少錢(萬)", 10),
   numericInput("year", "要繳幾年", 20),
@@ -43,7 +43,7 @@ server <- function(input, output) {
   
   value<- eventReactive(input$go, {
     
-    npvplot(input$yearpay,input$year,input$yearget,input$restyear,input$rate)
+    npvplot(input$yearpay,input$yearget,input$rate,input$year,input$restyear)
   })
   
   output$plot <- renderPlot({
