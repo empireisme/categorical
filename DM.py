@@ -36,6 +36,7 @@ model.add(Dense(units=256, input_dim=9, kernel_initializer='normal', activation=
 # Add output layer
 model.add(Dense(units=2, kernel_initializer='normal', activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy']) 
-train_history = model.fit(x=Xnumerical, y=y_binary, validation_split=0.2, epochs=10, batch_size=800, verbose=2)  
+train_history = model.fit(x=Xnumerical, y=y_binary, validation_split=0.2, epochs=10, batch_size=800,
+                          verbose=2)  
 
 
